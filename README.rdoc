@@ -35,6 +35,8 @@ Useful for callbacks, benchmarking, profiling, code graphs.
 
 == Copyright
 
-Copyright (c) 2012 kazuyoshi tlacaelel. See LICENSE.txt for
-further details.
+I am not the author, am just providing people with the gem.
+original code and author can be found here:
+
+http://www.erikveen.dds.nl/monitorfunctions/index.html
 
