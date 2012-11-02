@@ -1,16 +1,37 @@
 = wrap_method
 
-Description goes here.
+Useful for callbacks, benchmarking, profiling, code graphs.
 
-== Contributing to wrap_method
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
-* Fork the project.
-* Start a feature/bugfix branch.
-* Commit and push until you are happy with your contribution.
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+== Example
+
+    require 'rubygems'
+    require 'wrap_method'
+
+    class Module
+      def make_cool(method_name)
+        wrap_method(method_name) do |org_method, args, block|
+          puts 'Pssst!'
+          result = org_method.call(*args, &block)
+          puts '     Sexy girl!!!'
+          result
+        end
+      end
+    end
+
+    class Person
+      def greet
+        puts '  Hey there..'
+      end
+    end
+
+    Person.make_cool :greet
+    Person.new.greet
+
+== Output
+
+    Pssst!
+      Hey there..
+         Sexy girl!!!
 
 == Copyright
 
